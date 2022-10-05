@@ -2,6 +2,8 @@ import React from "react";
 import { Component } from "react";
 import { View, Text, TextInput, Button, Image } from "react-native";
 import { FlatList } from "react-native";
+import { StyleSheet } from "react-native";
+import { SafeAreaView } from "react-native";
 import { Rating } from "react-native-rating-element";
 const ps21 = require("../../image/daucam1.png")
 const ps22 = require("../../image/carbusbtops21.png")
@@ -76,36 +78,42 @@ const Lists = ({ list }) => {
     const listview = list.map((lists) => <List lists={lists} />)
     return listview
 }
+const GridViews = ({ cap, firstname, gia, sale }) => {
+    return (
+        <View style={{ backgroundColor: "gray",flex:1}}>
+            <View style={{padding:21}}>
+                <Image source={cap}></Image>
+            </View>
+            <View style={{ padding: 10 }}>
+                <Text style={{ width: 90 }}>{firstname}</Text>
+            </View>
+            <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center",margin:5}}>
+                <Rating
+                    rated={3.7}
+                    totalCount={5}
+                    ratingColor="#f1c644"
+                    ratingBackgroundColor="#d4d4d4"
+                    size={24}
+                    readonly // by default is false
+                    icon="ios-star"
+                    direction="row" // anyOf["row" (default), "row-reverse", "column", "column-reverse"]
+                />
+                <Text>(15)</Text>
+            </View>
+            <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center",margin:5,padding:4 }}>
+                <Text>{gia}</Text>
+                <Text style={{}}>{sale}</Text>
+            </View>
+        </View>
+    )
+}
 const GridView = () => {
     return (
-        <View>
+        <View style={{flex:1,width:"100%",height:"100%"}}>
             <FlatList
                 data={list}
-                renderItem={({ list }) => (
-                    <View>
-                        <Image source={list.cap}></Image>
-                        <Text>{list.firstname}</Text>
-                        <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
-                            <Rating
-                                rated={3.7}
-                                totalCount={5}
-                                ratingColor="#f1c644"
-                                ratingBackgroundColor="#d4d4d4"
-                                size={24}
-                                readonly // by default is false
-                                icon="ios-star"
-                                direction="row" // anyOf["row" (default), "row-reverse", "column", "column-reverse"]
-                            />
-                            <Text>(15)</Text>
-                        </View>
-                        <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
-                            <Text>{list.gia}</Text>
-                            <Text>{list.sale}</Text>
-                        </View>
-                    </View>
-                )}
+                renderItem={({ item }) => <GridViews cap={item.cap} firstname={item.firstname} gia={item.gia} sale={item.sale} />}
                 numColumns={2}
-                keyExtractor={(index)=>index.toString()}
             />
         </View>
     )

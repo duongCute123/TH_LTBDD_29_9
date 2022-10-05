@@ -12,7 +12,7 @@ import TestNavigation from './component/ListView/Navigation';
 import MyStack from './component/ListView/Navigation';
 //Do lỗi chia flex ra trong từng compnent nên em gộp chunh nó vào trong app.js
 //Màm hình activity a finish
-const Frame_C = () => {
+const FrameMain = () => {
   return (
     <View style={{ flex: 1 }}>
       <View style={{ flex: 1 }}>
@@ -237,10 +237,17 @@ const styles=StyleSheet.create({
     color:"black"
   }
 })
+const FrameChinh=()=>{
+  return(
+    <View>
+        
+    </View>
+  )
+}
 export default function App() {
   return (
     <View style={{ width: "100%", height: "100%", backgroundColor: "white" }}>
-      <ListView />
+      <FrameChinh />
     </View>
   );
 }
