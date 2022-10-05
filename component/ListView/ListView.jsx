@@ -41,12 +41,20 @@ const list = [
 ]
 const List = ({ lists: { noicom, firname, shop } }) => {
     return (
-        <View style={styles.main}>
-            <Image source={noicom}></Image>
-            <Text>{firname}</Text>
-            <Text>{shop}</Text>
+        <View style={{ flex: 1, flexDirection: "row" ,width:"100%",height:"100%",borderStyle:"solid"}}>
             <View>
-                <Button title="Chat"></Button>
+                <Image source={noicom}></Image>
+            </View>
+            <View style={{marginLeft:20}}>
+                <View style={{ flexDirection: "row" }}>
+                    <Text style={{ fontSize: 20 }}>{firname}</Text>
+                </View>
+                <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
+                    <Text style={{ color: "red" }}>{shop}</Text>
+                    <View style={{marginLeft:160,backgroundColor:"red"}}>
+                        <Button title="Chat"></Button>
+                    </View>
+                </View>
             </View>
         </View>
     )
@@ -66,12 +74,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: "column",
-        backgroundColor: "red"
+        backgroundColor: "gray"
     },
-    main: {
-        flex:1,
-        flexDirection: "column",
-
-    }
 })
 export default ListView
