@@ -41,7 +41,7 @@ const list = [
 ]
 const List = ({ lists: { noicom, firname, shop } }) => {
     return (
-        <View style={{ flex: 1, flexDirection: "row" ,width:"100%",height:"100%",borderStyle:"solid"}}>
+        <View style={{ flex: 1, flexDirection: "row" ,width:"100%",height:"100%",backgroundColor:"white",borderWidth:1,borderColor:"black",marginTop:20}}>
             <View>
                 <Image source={noicom}></Image>
             </View>
@@ -51,7 +51,7 @@ const List = ({ lists: { noicom, firname, shop } }) => {
                 </View>
                 <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
                     <Text style={{ color: "red" }}>{shop}</Text>
-                    <View style={{marginLeft:160,backgroundColor:"red"}}>
+                    <View style={{marginLeft:140,backgroundColor:"red"}}>
                         <Button title="Chat"></Button>
                     </View>
                 </View>
